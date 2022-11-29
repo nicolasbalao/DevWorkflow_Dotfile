@@ -24,3 +24,9 @@ keymap("n", "<leader>lI", ":LspInstall<CR>", opts)
 keymap("n", "<leader>la", ":LspStart<CR>", opts)
 keymap("n", "<leader>ld", ":LspStop<CR>", opts)
 keymap("n", "<leader>ma", ":Mason<CR>", opts)
+
+-- Better window navigation
+keymap("n", "<C-h>", "<C-w>h", opts)
+keymap("n", "<C-j>", "<C-w>j", opts)
+keymap("n", "<C-k>", "<C-w>k", opts)
+keymap("n", "<C-l>", "<C-w>l", opts)
