@@ -16,6 +16,7 @@ vim.opt.termguicolors = true
 vim.opt.colorcolumn = "80"
 vim.opt.scrolloff = 10
 vim.opt.cursorline = true
+vim.opt.clipboard = "unnamedplus"
 
 --Colorscheme
 vim.cmd [[colorscheme tokyonight]]
