@@ -88,9 +88,11 @@ function link_dotfile() {
     echo "Export config path $1"
     mv ~/.config/nvim ~/.config/nvim.bak
     mv ~/.tmux.conf ~/.tmux.bak
+    mv ~/.zshrc ~/.zshrc.bak
 
     ln -s $1/tmux/tmux.conf ~/.tmux.conf
     ln -s $1/nvim ~/.config/nvim
+    ln -s $1/zsh/zshrc ~/.zshrc
 }
 
 function main() {
