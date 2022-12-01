@@ -22,8 +22,8 @@
 # 3. zsh
 #
 
-# Exit if any subcommand fails
-set -e
+# Exit if any subcommand fails || need to do gestion of errors
+#set -e
 
 #Global Var
 
@@ -68,7 +68,7 @@ function install_starship() {
 
 function install_nvm() {
     printf "${CLEAR_Line}[5/8]  Install nvm..."
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.2/install.sh | bash
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
 }
 
 function install_shell() {
@@ -80,15 +80,15 @@ function install_shell() {
 }
 
 function install_tmux() {
-    printf "${CLEAR_Line}[8/8]  Install tmux..."
+    printf "${CLEAR_Line}[7/8]  Install tmux..."
     sudo apt-get -y install tmux > /dev/null
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm > /dev/null
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 
 }
 
 function install_neovim() {
-    printf "${CLEAR_Line}[7/8]  Install neovim from source..."
+    printf "${CLEAR_Line}[8/8]  Install neovim from source..."
     cd /tmp
-    git clone https://github.com/neovim/neovim > /dev/null
+    git clone https://github.com/neovim/neovim 
     cd /tmp/neovim/
     make CMAKE_BUILD_TYPE=RelWithDebInfo > /dev/null
     sudo make install  > /dev/null
