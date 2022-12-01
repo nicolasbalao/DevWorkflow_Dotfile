@@ -20,11 +20,14 @@
 # 1. nvim 
 # 2. tmux
 # 3. zsh
+#
+# ----------TEST---------------
+#   DOING- missing install for zsh-syntax and zsh-autosuggestion
 
 function requirements() {
     echo "----Make update----"
     sudo apt-get update
-    sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen make
+    sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen make python3 python-is-python3
 }
 
 function install_zsh() {
@@ -40,6 +43,9 @@ function install_oh_my_zsh() {
     echo "----Install oh-my-zsh----"
     #https://ohmyz.sh/
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 }
 
 
@@ -78,6 +84,7 @@ function install_tmux() {
 function install_neovim() {
     cd /tmp
     git clone https://github.com/neovim/neovim
+    cd /tmp/neovim/
     make CMAKE_BUILD_TYPE=RelWithDebInfo
     sudo make install
 }
@@ -102,7 +109,7 @@ function link_dotfile() {
 
 function main() {
     local path=$(pwd)
-    echo $path
+
     requirements
     install_shell
     install_tools
