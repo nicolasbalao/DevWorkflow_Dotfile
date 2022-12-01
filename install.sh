@@ -103,3 +103,6 @@ function main() {
     install_tools
     link_dotfile path
 }
+
+
+main
