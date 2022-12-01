@@ -44,6 +44,7 @@ function install_zsh() {
 }
 
 function install_oh_my_zsh() {
+    export RUNZSH=no
 
     printf "${CLEAR_Line}[4/8]  Install oh-my-zsh and plugins..."
     #https://ohmyz.sh/
