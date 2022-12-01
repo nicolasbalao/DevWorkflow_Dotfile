@@ -22,13 +22,13 @@
 # 3. zsh
 
 function requirements() {
-    echo "Make update"
+    echo "----Make update----"
     sudo apt-get update
-    sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
+    sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen make
 }
 
 function install_zsh() {
-    echo "Installing ZSH"
+    echo "----Installing ZSH----"
     sudo apt-get install zsh
 
     #make to default shell
@@ -37,14 +37,14 @@ function install_zsh() {
 }
 
 function install_oh_my_zsh() {
-    echo "Install oh-my-zsh"
+    echo "----Install oh-my-zsh----"
     #https://ohmyz.sh/
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
 
 function install_autojump() {
-    echo "Install autojump for oh-my-zsh"
+    echo "----Install autojump for oh-my-zsh----"
     cd /tmp
     git clone https://github.com/wting/autojump
     cd autojump
@@ -52,17 +52,22 @@ function install_autojump() {
 }
 
 function install_starship() {
-    echo "Install starship"
+    echo "----Install starship----"
     curl -sS https://starship.rs/install.sh | sh
 }
 
 function install_nvm() {
-    echo "Install nvm"
+    echo "----Install nvm----"
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
 }
 
 function install_shell() {
-    echo "Setup the Terminal"
+    echo "----Setup the Terminal----"
+    install_zsh
+    install_oh_my_zsh
+    install_autojump
+    install_starship
+    install_nvm
 }
 
 function install_tmux() {
@@ -78,9 +83,9 @@ function install_neovim() {
 }
 
 function install_tools() {
-    echo "Install tmux"
+    echo "----Install tmux----"
     install_tmux
-    echo "Install neovim"
+    echo "----Install neovim----"
     install_neovim
 }
 
@@ -96,13 +101,12 @@ function link_dotfile() {
 }
 
 function main() {
-    path = pwd
-
+    local path=$(pwd)
+    echo $path
     requirements
     install_shell
     install_tools
-    link_dotfile path
+    link_dotfile $path
 }
-
 
 main
