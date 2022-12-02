@@ -19,4 +19,4 @@ vim.opt.cursorline = true
 vim.opt.clipboard = "unnamedplus"
 
 --Colorscheme
-vim.cmd [[colorscheme tokyonight]]
+vim.cmd([[colorscheme tokyonight]])
