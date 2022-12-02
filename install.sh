@@ -44,20 +44,20 @@ function install_zsh() {
 }
 
 function install_oh_my_zsh() {
-    export RUNZSH=no
+    export RUNZSH=no 
 
     printf "${CLEAR_Line}[4/8]  Install oh-my-zsh and plugins..."
     #https://ohmyz.sh/
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting > /dev/null
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions > /dev/null
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting 2> /dev/null
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions 2> /dev/null
 }
 
 
 function install_autojump() {
     cd /tmp
-    git clone https://github.com/wting/autojump > /dev/null
+    git clone https://github.com/wting/autojump 2> /dev/null
     cd autojump
     ./install.py > /dev/null
 }
@@ -83,13 +83,13 @@ function install_shell() {
 function install_tmux() {
     printf "${CLEAR_Line}[7/8]  Install tmux..."
     sudo apt-get -y install tmux > /dev/null
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 2> /dev/null
 }
 
 function install_neovim() {
     printf "${CLEAR_Line}[8/8]  Install neovim from source..."
     cd /tmp
-    git clone https://github.com/neovim/neovim 
+    git clone https://github.com/neovim/neovim  2> /dev/null
     cd /tmp/neovim/
     make CMAKE_BUILD_TYPE=RelWithDebInfo > /dev/null
     sudo make install  > /dev/null
