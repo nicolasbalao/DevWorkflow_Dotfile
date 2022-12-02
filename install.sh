@@ -64,12 +64,12 @@ function install_autojump() {
 
 function install_starship() {
     printf "${CLEAR_Line}[5/8]  Install starship..."
-    sh -c "$(curl -sS https://starship.rs/install.sh)" "" -f -y #custom commande for not having interaction while install
+    sh -c "$(curl -sS https://starship.rs/install.sh)" "" -f -y > /dev/null #custom commande for not having interaction while install
 }
 
 function install_nvm() {
     printf "${CLEAR_Line}[5/8]  Install nvm..."
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash > /dev/null
 }
 
 function install_shell() {
