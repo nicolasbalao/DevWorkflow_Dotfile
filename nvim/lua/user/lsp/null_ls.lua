@@ -6,7 +6,7 @@ if not null_ls_ok then
 end
 
 local formatting = null_ls.builtins.formatting
-local diagnostic = null_ls.builtins.diagnostic
+local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup({
 	sources = {
