@@ -64,7 +64,7 @@ function install_autojump() {
 
 function install_starship() {
     printf "${CLEAR_Line}[5/8]  Install starship..."
-    curl -sS https://starship.rs/install.sh | sh 
+    sh -c "$(curl -sS https://starship.rs/install.sh)" "" -f -y #custom commande for not having interaction while install
 }
 
 function install_nvm() {
