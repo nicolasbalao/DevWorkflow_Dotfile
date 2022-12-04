@@ -10,6 +10,14 @@ keymap("n", "<leader>ww", ":w<CR>", opts)
 keymap("n", "<leader>so", ":so%<CR>", opts)
 keymap("n", "<leader>hh", ":noh<CR>", opts)
 
+--Null-ls
+keymap("n", "<leader>ni", ":NullLsInfo<CR>", opts)
+
+--Packer
+keymap("n", "<leader>pi", ":PackerInstall<CR>", opts)
+keymap("n", "<leader>ps", ":PackerSync<CR>", opts)
+keymap("n", "<leader>pS", ":PackerStatus<CR>", opts)
+
 --telescope
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, opts)
