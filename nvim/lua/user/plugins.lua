@@ -74,4 +74,7 @@ return packer.startup(function(use)
 
 	--starter page
 	use("goolord/alpha-nvim")
+
+	--project
+	use("ahmedkhalf/project.nvim")
 end)

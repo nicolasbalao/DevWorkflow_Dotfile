@@ -22,10 +22,12 @@ keymap("n", "<leader>pS", ":PackerStatus<CR>", opts)
 --telescope
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, opts)
+vim.keymap.set("n", "<leader>fr", builtin.oldfiles, opts)
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, opts)
 vim.keymap.set("n", "<leader>fb", builtin.buffers, opts)
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, opts)
 vim.keymap.set("n", "<leader>fk", builtin.keymaps, opts)
+vim.keymap.set("n", "<leader>fp", ":Telescope projects <CR>", opts)
 
 --Lsp macon
 keymap("n", "<leader>li", ":LspInfo<CR>", opts)
