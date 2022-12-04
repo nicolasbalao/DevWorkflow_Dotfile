@@ -9,7 +9,7 @@ require("mason").setup({
 })
 
 require("mason-lspconfig").setup({
-	ensure_installed = { "sumneko_lua", "tsserver", "clangd", "stylua" },
+	ensure_installed = { "sumneko_lua", "tsserver", "clangd" },
 })
 
 require("mason-lspconfig").setup_handlers({
@@ -22,3 +22,4 @@ require("mason-lspconfig").setup_handlers({
 		})
 	end,
 })
+
