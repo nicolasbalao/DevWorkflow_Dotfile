@@ -63,7 +63,7 @@ return packer.startup(function(use)
 	use("L3MON4D3/LuaSnip") --snippet engine
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
-    --Lualine
+	--Lualine
 	use("nvim-lualine/lualine.nvim")
 
 	--Icons
@@ -71,4 +71,7 @@ return packer.startup(function(use)
 
 	--git
 	use("lewis6991/gitsigns.nvim")
+
+	--starter page
+	use("goolord/alpha-nvim")
 end)

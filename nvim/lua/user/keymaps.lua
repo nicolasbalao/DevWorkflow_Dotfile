@@ -9,6 +9,7 @@ keymap("n", "<leader>ee", ":Explore<CR>", opts)
 keymap("n", "<leader>ww", ":w<CR>", opts)
 keymap("n", "<leader>so", ":so%<CR>", opts)
 keymap("n", "<leader>hh", ":noh<CR>", opts)
+keymap("n", "<leader>aa", ":Alpha<CR>", opts)
 
 --Null-ls
 keymap("n", "<leader>ni", ":NullLsInfo<CR>", opts)
