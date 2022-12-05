@@ -31,6 +31,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 alias vim="nvim"
 alias stmux="j $1 && tmux new -s $1"
+alias gitoken="cat ~/.token.gh | xclip -selection clipboard"
 
 
 export NVM_DIR="$HOME/.nvm"
