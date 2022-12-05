@@ -32,6 +32,8 @@ vim.keymap.set("n", "<leader>fb", builtin.buffers, opts)
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, opts)
 vim.keymap.set("n", "<leader>fk", builtin.keymaps, opts)
 vim.keymap.set("n", "<leader>fp", ":Telescope projects <CR>", opts)
+vim.keymap.set("n", "<leader>gc", builtin.git_commits, opts)
+vim.keymap.set("n", "<leader>fb", builtin.buffers, opts)
 
 --Lsp macon
 keymap("n", "<leader>li", ":LspInfo<CR>", opts)
