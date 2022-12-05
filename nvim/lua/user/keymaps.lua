@@ -19,6 +19,10 @@ keymap("n", "<leader>pi", ":PackerInstall<CR>", opts)
 keymap("n", "<leader>ps", ":PackerSync<CR>", opts)
 keymap("n", "<leader>pS", ":PackerStatus<CR>", opts)
 
+--Gitsign
+keymap("n", "<leader>gb", ":Gitsign blame_line<CR>", opts)
+keymap("n", "<leader>gd", ":Gitsign diffthis<CR>", opts)
+
 --telescope
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, opts)

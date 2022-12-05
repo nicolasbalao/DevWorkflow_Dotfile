@@ -77,4 +77,12 @@ return packer.startup(function(use)
 
 	--project
 	use("ahmedkhalf/project.nvim")
+
+	--Comment
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	})
 end)
