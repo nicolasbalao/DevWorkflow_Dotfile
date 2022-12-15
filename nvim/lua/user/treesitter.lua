@@ -7,7 +7,7 @@ end
 
 configs.setup({
 
-	ensure_installed = { "c", "lua", "bash" },
+	ensure_installed = { "c", "lua", "bash", "go" },
 
 	-- Automatically install missing parsers when entering buffer
 	-- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
@@ -21,7 +21,7 @@ configs.setup({
 		enable = true,
 	},
 	indent = {
-		enable = true,
+		enable = false,
 	},
 	context_commentstring = {
 		enable = true,
