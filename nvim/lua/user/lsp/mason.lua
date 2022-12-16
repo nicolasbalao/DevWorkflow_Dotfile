@@ -28,7 +28,7 @@ mason.setup({
 })
 
 mason_lsp.setup({
-	ensure_installed = { "sumneko_lua", "tsserver", "clangd" },
+	ensure_installed = { "sumneko_lua", "tsserver", "clangd", "gopls" },
 })
 
 mason_lsp.setup_handlers({
