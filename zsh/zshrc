@@ -37,7 +37,7 @@ take(){
 alias vim="nvim"
 alias stmux="j $1 && tmux new -s $1"
 alias gitoken="cat ~/.token.gh | xclip -selection clipboard"
-
+alias gitc="go_commit_tool"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
