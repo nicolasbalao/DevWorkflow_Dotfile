@@ -175,7 +175,7 @@ dashboard.section.buttons.val = {
 	dashboard.button("f", " Find file", ":Telescope find_files <CR>"),
 	dashboard.button("r", " Recent file", ":Telescope oldfiles <CR>"),
 	dashboard.button("p", " Project", ":Telescope projects <CR>"),
-	dashboard.button("c", "漣Configuration", ":e ~/.config/nvim <CR>"),
+	dashboard.button("c", "漣 Configuration", ":e ~/.config/nvim <CR>"),
 	dashboard.button("q", " Quit", ":q <CR>"),
 }
 
