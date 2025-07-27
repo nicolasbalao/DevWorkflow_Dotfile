@@ -5,8 +5,28 @@
 readonly SEARCH_DIRS=(~/personal ~/.config)
 readonly SEARCH_DEPTH=1
 
-sanity_check(){
-    if ! command -v tmux &>/dev/null;then
+show_help(){
+    cat << EOF
+Usage: $(basename "$0") [OPTIONS] [DIRECTORY]
+
+OPTIONS:
+    -l, --last      Switch to last session
+    -h, --help      Show this help message
+
+ARGUMENTS:
+    DIRECTORY       Specific directory to create session from
+                   If not provided, uses fzf to select from configured directories
+
+EXAMPLES:
+    $(basename "$0")                    # Interactive selection with fzf
+    $(basename "$0") ~/my-project       # Create session for specific directory
+    $(basename "$0") -l                 # Switch to last session
+
+EOF
+}
+
+sanity_check() {
+    if ! command -v tmux &>/dev/null; then
         echo "tmux is not installed. Please install it first"
         exit 1
     fi
@@ -27,6 +47,38 @@ is_in_tmux() {
 
 get_session_name() {
     basename "$1" | tr . _
+}
+
+get_last_session() {
+    if is_in_tmux; then
+        tmux display-message -p '#{client_last_session}'
+    else
+        tmux ls -F '#{session_last_attached} #{session_name}' 2>/dev/null |
+            sort -nr |
+            head -n1 |
+            cut -d' ' -f2
+    fi
+}
+
+switch_to_last_session() {
+    local last_session
+    last_session=$(get_last_session)
+
+    if [[ -z $last_session ]]; then
+        echo "No previous session found"
+        exit 1
+    fi
+
+    if ! session_exists "$last_session"; then
+        echo "Last session '$last_session' no longer exists"
+        exit 1
+    fi
+
+    if is_in_tmux; then
+        tmux switch-client -l
+    else
+        tmux attach -t "$last_session"
+    fi
 }
 
 select_directory() {
@@ -60,6 +112,21 @@ switch_to_session() {
 main() {
 
     sanity_check
+
+    case "${1:-}" in
+    -l | --last)
+        switch_to_last_session
+        exit 0
+        ;;
+    -h | --help)
+        show_help
+        exit 0
+        ;;
+    _*)
+        echo "Unknow option: $1"
+        show_help
+        ;;
+    esac
 
     local selected_dir
     selected_dir=$(select_directory "$@")
