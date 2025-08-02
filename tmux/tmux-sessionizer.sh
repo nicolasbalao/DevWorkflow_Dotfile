@@ -92,13 +92,15 @@ select_directory() {
 create_session() {
     local session_name="$1"
     local directory="$2"
+    local cmd='fish -c "nvim .; exec fish"'
 
-    if is_in_tmux; then
-        tmux new-session -d -s "$session_name" -c "$directory"
-    else
-        tmux new-session -s "$session_name" -c "$directory"
-        exit 0
-    fi
+
+    # All case create detached session
+    P_DIR="$directory" tmux new-session -d -s "$session_name" -c "$directory" -n nvim "$cmd"
+
+    # Add second window with the shell
+    # -d to prevent current window from changing
+    tmux new-window -d -t "$session_name":2 -c "$directory"
 }
 
 switch_to_session() {
@@ -106,6 +108,8 @@ switch_to_session() {
 
     if is_in_tmux; then
         tmux switch-client -t "$session_name"
+    else
+        tmux attach-session -d -t "$session_name"
     fi
 }
 
