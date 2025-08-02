@@ -37,6 +37,7 @@ return {
 
     -- ZLS setup
     local lspconfig = require("lspconfig")
+
     lspconfig.zls.setup({
       cmd = { "/usr/local/bin/zls" },
       capabilities = capabilities,
@@ -60,11 +61,9 @@ return {
       window = {
         completion = cmp.config.window.bordered({
           border = "rounded",
-          winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
         }),
         documentation = cmp.config.window.bordered({
           border = "rounded",
-          winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
         }),
       },
       -- OBLIGATOIRE: au moins une façon de naviguer/confirmer
