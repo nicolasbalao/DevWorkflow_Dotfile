@@ -96,11 +96,14 @@ create_session() {
 
 
     # All case create detached session
-    P_DIR="$directory" tmux new-session -d -s "$session_name" -c "$directory" -n nvim "$cmd"
+    tmux new-session -d -s "$session_name" -c "$directory" -n nvim "$cmd"
+
+    tmux set-environment -t "$session_name" ROOT_DIR "$directory"
 
     # Add second window with the shell
     # -d to prevent current window from changing
     tmux new-window -d -t "$session_name":2 -c "$directory"
+
 }
 
 switch_to_session() {
